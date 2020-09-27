@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "personaje.h"
 
 void capturar_entero(){
     int enteros [5];
@@ -40,6 +41,8 @@ do
     printf("1. Capturar enteros\n");
     printf("2. Mostrar cadena n veces\n");
     printf("3. Agregar personaje\n");
+    printf("4. Mostrar personajes\n");
+
     printf("0. Salir\n");
     scanf("%c", &op);
 
@@ -50,19 +53,22 @@ do
         break;
     
     case '2':
-        printf("Escribe una cadena de hasta 20 caracteres: \n");
-        fflush(stdin);
-        fgets(cadena, sizeof(cadena), stdin);
+        printf("Escribe una cadena de hasta 20 caracteres: ");
+        fflush(stdin);    
+        scanf("%s", cadena);
         printf("n: ");
         scanf("%i", &n);
-        mostrar (n, cadena);
+        mostrar(n, cadena);
         break;
 
     case '3':
+        capturar_personajes();
         break;    
-    default:
-
+    case '4': 
+        mostrar_personajes();
         break;
+     default:
+     break;    
     }
     
     fflush(stdin);
